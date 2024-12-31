@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Travel Blog</title>
+    <style>
+        /* Body Background Image and Basic Layout */
+        body {
+            background-image: url('https://cdn.pixabay.com/photo/2021/08/14/04/15/mountains-6544522_1280.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar Styling */
+        nav {
+            background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover {
+            color: #f0f0f0;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        /* Dashboard Container */
+        .dashboard-container {
+            text-align: center;
+            padding: 50px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            margin-top: 80px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+        }
+
+        .dashboard-container h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffcc00; /* Yellow color for heading */
+        }
+
+        .dashboard-container p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-container a {
+            background-color: #ffcc00; /* Yellow color for button */
+            padding: 10px 20px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dashboard-container a:hover {
+            background-color: #ff9900; /* Darker yellow on hover */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li> <!-- Home button points to /home -->
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+    
+
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <h1>Welcome, {{ username }}!</h1>
+        <p>This is your dashboard. You can manage your blog here.</p>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</body>
+</html>
